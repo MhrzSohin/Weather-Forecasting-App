@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:showweatherapp/presentation/pages/home/home_view.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 

@@ -1,7 +1,9 @@
 import 'package:get/get.dart';
 
 class LocationViewController extends GetxController {
+  //observable list to hold filtered location that match the search criteria
   List<String> filterlocationsList = <String>[].obs;
+  //list of all locations
   List<String> alllocationsList = [
     'Kathmandu, Nepal',
     'Bhaktapur, Nepal',
@@ -96,11 +98,13 @@ class LocationViewController extends GetxController {
     'Vientiane, Laos',
     'Thimphu, Bhutan',
     'Male, Maldives',
-    'Port Moresby, Papua New Guinea',
+    'Port Moresby, New Guinea',
   ];
+
 
   @override
   void onReady() {
+    //initially add all available location to filterlocation list
     filterlocationsList.addAll(alllocationsList);
     super.onReady();
   }
@@ -112,6 +116,7 @@ class LocationViewController extends GetxController {
   }
 
   onLocationSelection(int index) {
+    //close the current view and return the selected location
     Get.back(result: filterlocationsList[index]);
   }
 }

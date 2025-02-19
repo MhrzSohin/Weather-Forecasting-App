@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:showweatherapp/core/constants/app_constants.dart';
+import 'package:showweatherapp/core/constants/image_path.dart';
 import 'package:showweatherapp/helper/date_and_time_helper.dart';
 import 'package:showweatherapp/presentation/controllers/home_view_controller.dart';
 import 'package:showweatherapp/presentation/pages/web_view/weather_webview_details.dart';
@@ -27,12 +27,12 @@ class _HomePagesState extends State<HomeView> {
           width: sizeWidth,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(AppConstants.appBackground),
+              image: AssetImage(ImagePath.appBackground),
               fit: BoxFit.cover,
             ),
           ),
           child: SingleChildScrollView(
-            physics: NeverScrollableScrollPhysics(),
+            physics: BouncingScrollPhysics(),
             child: Padding(
               padding: EdgeInsets.all(10),
               child: Column(
@@ -142,23 +142,23 @@ class _HomePagesState extends State<HomeView> {
                           children: [
                             WeatherForecastCard(
                                 time: "12 AM",
-                                weatherIcon: AppConstants.moonCloudFastwind,
+                                weatherIcon: ImagePath.moonCloudFastwind,
                                 temperature: "19"),
                             WeatherForecastCard(
                                 time: "Now",
-                                weatherIcon: AppConstants.tornadoImg,
+                                weatherIcon: ImagePath.tornadoImg,
                                 temperature: "19"),
                             WeatherForecastCard(
                                 time: "2 AM",
-                                weatherIcon: AppConstants.moonCloudMidrain,
+                                weatherIcon: ImagePath.moonCloudMidrain,
                                 temperature: "18"),
                             WeatherForecastCard(
                                 time: "3 AM",
-                                weatherIcon: AppConstants.sunCloudAngledrain,
+                                weatherIcon: ImagePath.sunCloudAngledrain,
                                 temperature: "19"),
                             WeatherForecastCard(
                                 time: "4 AM",
-                                weatherIcon: AppConstants.sunCloudMiddrain,
+                                weatherIcon: ImagePath.sunCloudMiddrain,
                                 temperature: "19"),
                           ],
                         ),
