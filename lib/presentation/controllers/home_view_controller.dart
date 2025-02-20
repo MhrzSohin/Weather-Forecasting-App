@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:showweatherapp/data/datasources/local/app_database.dart';
 import 'package:showweatherapp/data/datasources/local/weather_entity.dart';
@@ -82,7 +83,7 @@ class HomeViewController extends GetxController {
       // API URL and parameters
       String url = 'https://api.openweathermap.org/data/2.5/weather';
       Map<String, String> params = {
-        'appid': '63fe75528c6a11affd5006023eef9683',
+        'appid': '${dotenv.env['API_KEY']}',
         'q': location.value,
         'units': 'metric',
       };
