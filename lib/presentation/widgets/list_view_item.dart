@@ -11,6 +11,7 @@ class ListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      // ignore: deprecated_member_use
       tileColor: Colors.white.withOpacity(0.2),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       onTap: () {

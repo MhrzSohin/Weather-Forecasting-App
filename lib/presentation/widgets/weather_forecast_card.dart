@@ -22,6 +22,7 @@ class WeatherForecastCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(40),
         boxShadow: [
           BoxShadow(
+            // ignore: deprecated_member_use
             color: Colors.black.withOpacity(0.2),
             blurRadius: 8,
             offset: const Offset(2, 4),

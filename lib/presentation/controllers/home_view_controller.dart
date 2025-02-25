@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
@@ -41,11 +42,11 @@ class HomeViewController extends GetxController {
 
   /// Save last selected location to the database
   Future<void> saveLastLocation(String loc) async {
-    print("Saving location: $loc");
+    log("Saving location: $loc");
     final lastLocEntity =
         WeatherEntity(location: 'lastLocation', jsonData: loc);
     await database.weatherDao.insertWeather(lastLocEntity);
-    print(" Location saved successfully!");
+    log(" Location saved successfully!");
   }
 
 //get the last saved location from ther database and update the weather
@@ -55,11 +56,11 @@ class HomeViewController extends GetxController {
         .getWeather('lastLocation'); //retrieve saved location
     if (lastlocEntity != null) {
       location.value = lastlocEntity.jsonData; //set location to the saved one
-      print("Retrieved last location: ${location.value}");
+      log("Retrieved last location: ${location.value}");
     } else {
       location.value =
           "Kathmandu, Nepal"; //use defalut location if no location is saved
-      print("No saved location found. Using default: Kathmandu, Nepal");
+      log("No saved location found. Using default: Kathmandu, Nepal");
     }
     final weatherEntity = await database.weatherDao
         .getWeather(location.value); //retriev weather data
@@ -67,7 +68,7 @@ class HomeViewController extends GetxController {
       weathermodel.value = Weathermodel.fromJson(
           jsonDecode(weatherEntity.jsonData)); //parse and set weather data
     } else {
-      print("No offline weather data found. Fetching from API..");
+      log("No offline weather data found. Fetching from API..");
     }
     await getWeatherUpdate(); //fetched the latest weather data from API
   }

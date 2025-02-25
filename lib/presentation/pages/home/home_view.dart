@@ -132,6 +132,7 @@ class _HomePagesState extends State<HomeView> {
                   Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
+                      // ignore: deprecated_member_use
                       color: Colors.white.withOpacity(0.2),
                       borderRadius: BorderRadius.circular(30),
                     ),

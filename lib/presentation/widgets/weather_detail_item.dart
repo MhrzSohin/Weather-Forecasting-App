@@ -21,6 +21,7 @@ class WeatherDetailItem extends StatelessWidget {
       padding: EdgeInsets.all(13),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
+        // ignore: deprecated_member_use
         color: Colors.white.withOpacity(0.17),
       ),
       child: Row(
